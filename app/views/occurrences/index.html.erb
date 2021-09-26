@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Occurrences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @occurrences.each do |occurrence| %>
+      <tr>
+        <td><%= occurrence.name %></td>
+        <td><%= occurrence.start_time %></td>
+        <td><%= link_to 'Show', occurrence %></td>
+        <td><%= link_to 'Edit', edit_occurrence_path(occurrence) %></td>
+        <td><%= link_to 'Destroy', occurrence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Occurrence', new_occurrence_path %>

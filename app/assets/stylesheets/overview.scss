@@ -1,0 +1,73 @@
+// Place all the styles related to the overview controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "simple_calendar";
+
+$irelevant: #ccc;
+
+.calendar-heading {
+  a {
+    text-decoration: none;
+    color: #2E2F30;
+  }
+  font-weight: 600;
+
+
+}
+
+.simple-calendar {
+  .table {
+
+    border: none;
+    margin: 0;
+
+    .today {
+      background-color: #b0e0ff;
+    }
+
+    th, td {
+      border: none;
+      background-color: #fff;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    th {
+      height: 60px;
+      padding-bottom: 20px;
+    }
+
+    td {
+      border: 1px solid #eee;
+    }
+
+    td:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px 1px #0001;
+    }
+
+    tr {
+      background-color: #fff;
+    }
+  }
+
+
+
+  .prev-month {
+    color: $irelevant;
+  }
+  .next-month {
+    color: $irelevant;
+  }
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+  background: linear-gradient(#fff, #fff);
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
