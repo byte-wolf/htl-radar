@@ -1,5 +1,9 @@
 <div class="simple-calendar">
-
+  <div class="btn-group mb-5 w-25">
+    <a class="btn btn-primary" href="<%= calendar.url_for_previous_view %>"><%= octicon "triangle-left", :height => 24, :fill => "white"%></a>
+    <span class="btn btn-primary"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <a class="btn btn-primary" href="<%= calendar.url_for_next_view %>"><%= octicon "triangle-right", :height => 24, :fill => "white"%></a>
+  </div>
 
   <table class="table">
     <thead>
@@ -16,9 +20,9 @@
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                <% capture_haml(day.strftime("%d"), sorted_events.fetch(day, []), &passed_block) %>
               <% else %>
-                <% passed_block.call day, sorted_events.fetch(day, []) %>
+                <% passed_block.call day.strftime("%d"), sorted_events.fetch(day, []) %>
               <% end %>
             <% end %>
           <% end %>

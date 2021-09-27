@@ -23,14 +23,14 @@ $irelevant: #ccc;
     margin: 0;
 
     .today {
-      background-color: #b0e0ff;
+      background: #b0e0ff linear-gradient(135deg, #b0e0ff, #80b0ff);
+      font-weight: 700;
     }
 
     th, td {
       border: none;
       background-color: #fff;
       text-align: center;
-      cursor: pointer;
     }
 
     th {
@@ -40,6 +40,7 @@ $irelevant: #ccc;
 
     td {
       border: 1px solid #eee;
+      cursor: pointer;
     }
 
     td:hover {
@@ -70,4 +71,8 @@ $irelevant: #ccc;
   display: flex;
   width: 100%;
   align-items: stretch;
+}
+
+.col-white {
+  color: white;
 }

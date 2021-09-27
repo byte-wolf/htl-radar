@@ -65,3 +65,5 @@ gem 'rails-i18n'
 gem 'rb-readline'
 
 gem 'thin'
+
+gem 'octicons_helper'

@@ -1,5 +1,8 @@
-<h1>New Occurrence</h1>
+<div class="container mt-5">
+  <h1>New Occurrence</h1>
 
-<%= render 'form', occurrence: @occurrence %>
+  <%= render 'form', occurrence: @occurrence %>
 
-<%= link_to 'Back', occurrences_path %>
+  <%= link_to 'Back', occurrences_path, :class => "btn btn-secondary text-light mt-5" %>
+</div>
+

@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @occurrence.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @occurrence.name %>
+  </p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @occurrence.start_time %>
-</p>
+  <p>
+    <strong>Start time:</strong>
+    <%= @occurrence.start_time %>
+  </p>
 
-<%= link_to 'Edit', edit_occurrence_path(@occurrence) %> |
-<%= link_to 'Back', occurrences_path %>
+  <%= link_to 'Back', occurrences_path, :class => "btn btn-secondary text-light mt-5" %>
+  <%= link_to 'Edit', edit_occurrence_path(@occurrence), :class => "btn btn-secondary text-light mt-5" %>
+
+</div>
+

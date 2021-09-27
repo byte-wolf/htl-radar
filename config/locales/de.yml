@@ -3,3 +3,7 @@ de:
     previous: "<<"
     next: ">>"
     week: Woche
+  actions:
+    show: "Details"
+    edit: "Bearbeiten"
+    destroy: "Löschen"

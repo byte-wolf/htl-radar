@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5">
 
-<h1>Occurrences</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
+  <h1>Occurrences</h1>
+
+  <table class="table">
+    <thead>
     <tr>
       <th>Name</th>
       <th>Start time</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @occurrences.each do |occurrence| %>
       <tr>
         <td><%= occurrence.name %></td>
-        <td><%= occurrence.start_time %></td>
-        <td><%= link_to 'Show', occurrence %></td>
-        <td><%= link_to 'Edit', edit_occurrence_path(occurrence) %></td>
-        <td><%= link_to 'Destroy', occurrence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= I18n.localize occurrence.start_time %></td>
+        <td><%= link_to I18n.translate('actions.show'), occurrence %></td>
+        <td><%= link_to I18n.translate('actions.edit'), edit_occurrence_path(occurrence) %></td>
+        <td><%= link_to I18n.translate('actions.destroy') , occurrence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Occurrence', new_occurrence_path %>
+  <%= link_to octicon("plus", :height => 16, :fill => "white") + ' New Event', new_occurrence_path, :class => "btn btn-primary text-light" %>
+</div>
+
