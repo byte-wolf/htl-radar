@@ -11,9 +11,32 @@ $irelevant: #ccc;
     text-decoration: none;
     color: #2E2F30;
   }
+
+  a:hover {
+    background-color: white;
+    color: #2E2F30;
+  }
+
+  .heavy {
+    font-weight: 900;
+  }
+
   font-weight: 600;
 
 
+}
+
+.current {
+  line-height: 0.9;
+
+  .current-year {
+    font-size: 120%;
+  }
+
+  .current-month {
+    font-size: 150%;
+    font-weight: 700;
+  }
 }
 
 .simple-calendar {
@@ -23,8 +46,8 @@ $irelevant: #ccc;
     margin: 0;
 
     .today {
-      background: #b0e0ff linear-gradient(135deg, #b0e0ff, #80b0ff);
-      font-weight: 700;
+      //background: #b0e0ff linear-gradient(135deg, #b0e0ff, #80b0ff);
+      color: #dc3545;
     }
 
     th, td {
@@ -36,6 +59,9 @@ $irelevant: #ccc;
     th {
       height: 60px;
       padding-bottom: 20px;
+      color: white;
+      background-color: #6c757d;
+      border-bottom: 1px solid #eee;
     }
 
     td {
@@ -50,6 +76,19 @@ $irelevant: #ccc;
 
     tr {
       background-color: #fff;
+    }
+
+    .day {
+      font-weight: 1000;
+      font-size: 110%;
+
+      div {
+        font-size: 60%;
+      }
+    }
+
+    .wday-0, .wday-6 {
+      background-color: #f7f7f7;
     }
   }
 

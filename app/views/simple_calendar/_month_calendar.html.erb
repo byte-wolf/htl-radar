@@ -1,9 +1,21 @@
 <div class="simple-calendar">
-  <div class="btn-group mb-5 w-25">
-    <a class="btn btn-primary" href="<%= calendar.url_for_previous_view %>"><%= octicon "triangle-left", :height => 24, :fill => "white"%></a>
-    <span class="btn btn-primary"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <a class="btn btn-primary" href="<%= calendar.url_for_next_view %>"><%= octicon "triangle-right", :height => 24, :fill => "white"%></a>
+  <div class="mb-3">
+    <div class="row">
+      <div class="col text-start current">
+        <span class="current-year"><%= start_date.year %></span><br>
+        <span class="current-month"><%= t('date.month_names')[start_date.month] %></span>
+      </div>
+      <div class="col text-end">
+        <div class="btn-group calendar-heading w-50">
+          <a class="btn btn-outline-secondary" href="<%= calendar.url_for_previous_view %>"><%= octicon "triangle-left", :height => 24, :fill => "grey"%></a>
+          <a class="btn btn-outline-secondary heavy" href="/overview">Today</a>
+          <a class="btn btn-outline-secondary text-dark" href="<%= calendar.url_for_next_view %>"><%= octicon "triangle-right", :height => 24, :fill => "grey"%></a>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 
   <table class="table">
     <thead>
