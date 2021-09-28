@@ -29,7 +29,6 @@ production:
   port: 5432
   database: htlradar
   username: htlradar
-  ### ---> ###
 
 
 
