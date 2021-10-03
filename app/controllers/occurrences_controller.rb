@@ -3,7 +3,12 @@ class OccurrencesController < ApplicationController
 
   # GET /occurrences or /occurrences.json
   def index
-    @occurrences = Occurrence.all
+    if params['from'] and params['to']
+      @occurrences = Occurrence.where(:start_time => params['from'].to_date.beginning_of_day..params['to'].to_date.end_of_day)
+
+    else
+      @occurrences = Occurrence.all
+    end
   end
 
   # GET /occurrences/1 or /occurrences/1.json

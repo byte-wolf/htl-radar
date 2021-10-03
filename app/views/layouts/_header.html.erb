@@ -1,8 +1,8 @@
 
-<head>
+<!--<head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+</head>-->
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -11,7 +11,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto">
 
           <li class="nav-item">
             <%= link_to("Overview", "/", :class => "nav-link") %>
@@ -26,6 +26,9 @@
             <a class="nav-link disabled">Disabled</a>
           </li> -->
         </ul>
+        <span class="d-flex me-3">
+          <%= link_to "Login", "/login", :class => "btn btn-primary" %>
+        </span>
       </div>
     </div>
   </nav>
