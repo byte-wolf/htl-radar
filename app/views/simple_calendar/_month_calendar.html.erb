@@ -6,7 +6,7 @@
         <span class="current-month"><%= t('date.month_names')[start_date.month] %></span>
       </div>
       <div class="col text-end">
-        <div class="btn-group calendar-heading w-50">
+        <div class="btn-group calendar-heading mw-50">
           <a class="btn btn-outline-secondary" href="<%= calendar.url_for_previous_view %>"><%= octicon "triangle-left", :height => 24, :fill => "grey"%></a>
           <a class="btn btn-outline-secondary heavy" href="/overview">Today</a>
           <a class="btn btn-outline-secondary text-dark" href="<%= calendar.url_for_next_view %>"><%= octicon "triangle-right", :height => 24, :fill => "grey"%></a>

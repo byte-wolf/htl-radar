@@ -68,3 +68,7 @@ gem 'rb-readline'
 gem 'thin'
 
 gem 'octicons_helper'
+
+gem 'versionist'
+
+gem 'responders'

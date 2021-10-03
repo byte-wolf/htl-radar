@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  api_version(:module => "V1", :path => {:value => "api/v1"}, :defaults => {:format => :json}) do
+    resources :occurrences
+    end
   resources :occurrences
   get 'overview', to: 'overview#index'
   root 'overview#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

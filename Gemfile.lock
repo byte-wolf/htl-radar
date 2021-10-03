@@ -168,6 +168,9 @@ GEM
       ffi (~> 1.0)
     rb-readline (0.5.5)
     regexp_parser (2.1.1)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -205,6 +208,10 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    versionist (2.0.1)
+      activesupport (>= 3)
+      railties (>= 3)
+      yard (~> 0.9.20)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -224,6 +231,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.26)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -244,6 +252,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-i18n
   rb-readline
+  responders
   sass-rails (>= 6)
   selenium-webdriver
   simple_calendar (~> 2.4)
@@ -252,6 +261,7 @@ DEPENDENCIES
   thin
   turbolinks (~> 5)
   tzinfo-data
+  versionist
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
