@@ -4,11 +4,14 @@ class V1::OccurrencesController < V1::BaseController
   before_action :set_occurrence, only: [:show, :update, :destroy]
 
   def index
-    if params['from'] and params['to']
-      @occurrences = Occurrence.where(:start_time => params['from'].to_date.beginning_of_day..params['to'].to_date.end_of_day)
-
+    if @current_user
+      if params['from'] && params['to']
+        @occurrences = Occurrence.where(:start_time => params['from'].to_date.beginning_of_day..params['to'].to_date.end_of_day)
+      else
+        @occurrences = Occurrence.all
+      end
     else
-      @occurrences = Occurrence.all
+      render 'errors/forbidden', status: :forbidden
     end
 
     render json: @occurrences
@@ -18,7 +21,7 @@ class V1::OccurrencesController < V1::BaseController
     if @current_user
       render json: @occurrence
     else
-      render 'errors/forbidden', :status => 403
+      render 'errors/forbidden', status: :forbidden
     end
   end
 
@@ -32,9 +35,7 @@ class V1::OccurrencesController < V1::BaseController
         render json: @occurrence.errors, status: :unprocessable_entity
       end
     else
-      render json: {
-        status: 403
-      }
+      render 'errors/forbidden', status: :forbidden
     end
   end
 

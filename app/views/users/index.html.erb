@@ -1,0 +1,16 @@
+<thead>
+  <tr>
+    <th>Username</th>
+    <th>Email Address</th>
+    <th>Password digest</th>
+  </tr>
+</thead>
+<tbody>
+  <% @user.each do |user| %>
+    <tr>
+      <td><%= user.user_name %></td>
+      <td><%= user.email_address %></td>
+      <td><%= user.password_digest %></td>
+    </tr>
+  <% end %>
+</tbody>

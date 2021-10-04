@@ -3,27 +3,29 @@ class SessionsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  def new
-    @occurrence = Occurrence.new
-  end
+
 
   def create
     @user = User
-              .find_by(email_address: params['user']['email_address'])
-              .try(:authenticate, params['user']['password'])
+              .find_by(email_address: params['email_address'])
+              .try(:authenticate, params['password'])
 
-    if @user
-      session[:user_id] = @user.id
-      render json: {
-        status: :created,
-        logged_in: true,
-        user: @user
-      }
-    else
-      render json: {
-        status: 401
-      }
+    respond_to do |format|
+      if @user
+        session[:user_id] = @user.id
+        format.html { redirect_to '/', notice: "User is already logged in." }
+        format.json { render :show, status: :created }
+      else
+        flash[:danger] = 'Invalid email/password combination'
+        format.html { render :login, status: :unprocessable_entity }
+        format.json { render status: :unprocessable_entity }
+      end
     end
+  end
+
+  def destroy
+    reset_session
+    redirect_to '/'
   end
 
   def logged_in
@@ -45,5 +47,21 @@ class SessionsController < ApplicationController
       status: 200,
       logged_out: true
     }
+    redirect_to '/'
   end
 end
+
+=begin
+    if @user
+      session[:user_id] = @user.id
+      render json: {
+        status: :created,
+        logged_in: true,
+        user: @user
+      }
+    else
+      render json: {
+        status: 401
+      }
+    end
+=end

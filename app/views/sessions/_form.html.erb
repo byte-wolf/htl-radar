@@ -1,0 +1,28 @@
+<div>
+  <h2 class="w-25 mb-5">Login</h2>
+
+  <div>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form_tag '/login' do %>
+    <div class="field">
+      <%= label_tag :email_address, 'Email Address', class: 'w-25' %> <br>
+      <%= text_field_tag :email_address, nil, placeHolder: 'example@mail.com', class: 'form-control w-25' %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :password, 'Password', class: 'w-25' %> <br>
+      <%= password_field_tag :password, nil, placeHolder: '', class: 'form-control w-25' %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag 'Log In', class: 'btn btn-primary text-light px-4 mt-4' %>
+    </div>
+
+  <% end %>
+</div>

@@ -20,3 +20,30 @@
 a:hover {
   background-color: #fff0;
 }
+
+.btn-secondary {
+  border: none;
+}
+
+.btn-primary {
+  border: none;
+  background: #0dbdfd linear-gradient(45deg, #0d6efd, #0dbdfd);
+
+  font-weight: 600;
+}
+
+.btn-warning {
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0dbdfd;
+}
+
+.field {
+  select {
+    @extend .form-select;
+    display: inline;
+    width: auto;
+  }
+}

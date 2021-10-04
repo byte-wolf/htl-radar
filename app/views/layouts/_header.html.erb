@@ -27,7 +27,12 @@
           </li> -->
         </ul>
         <span class="d-flex me-3">
-          <%= link_to "Login", "/login", :class => "btn btn-primary" %>
+          <% if @current_user %>
+            <%= link_to "Logout", "/logout", :class => "btn btn-outline-secondary" %>
+          <% else %>
+            <%= link_to "Register", "/register", :class => "btn btn-outline-secondary me-3" %>
+            <%= link_to "Login", "/login", :class => "btn btn-primary text-light px-4" %>
+          <% end %>
         </span>
       </div>
     </div>

@@ -11,6 +11,15 @@ Rails.application.routes.draw do
   delete "/sessions/dismiss", to: "sessions#logout"
   get "/sessions/check", to: "sessions#logged_in"
 
+  get '/login', to: 'sessions#login'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  post '/logout', to: 'sessions#destroy'
+
+  resources :users, only: [:new, :create]
+  get '/register', to: 'users#new'
+
+  get 'logged_in', to: 'sessions#logged_in'
 
   resources :registrations, only: [:create]
 
