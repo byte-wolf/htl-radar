@@ -1,5 +1,5 @@
 if Rails.env == "production"
-  Rails.application.config.session_store :cookie_store, key: "_authentication_app", domain: "htlradar.projects.haiden.ch/"
+  Rails.application.config.session_store :cookie_store, key: "_htlradar", domain: "haiden.ch"
 else
-  Rails.application.config.session_store :cookie_store, key: "_authentication_app"
+  Rails.application.config.session_store :cookie_store, key: "_htlradar"
 end
