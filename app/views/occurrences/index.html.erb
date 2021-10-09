@@ -18,9 +18,9 @@
       <tr>
         <td><%= occurrence.name %></td>
         <td><%= I18n.localize occurrence.start_time %></td>
-        <td><%= link_to I18n.translate('actions.show'), occurrence %></td>
-        <td><%= link_to I18n.translate('actions.edit'), edit_occurrence_path(occurrence) %></td>
-        <td><%= link_to I18n.translate('actions.destroy') , occurrence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to I18n.translate('actions.show'), occurrence, :class => 'btn btn-sm btn-secondary text-light px-4' %></td>
+        <td><%= link_to I18n.translate('actions.edit'), edit_occurrence_path(occurrence), :class => 'btn btn-sm btn-warning px-4' %></td>
+        <td><%= link_to I18n.translate('actions.destroy') , occurrence, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger text-light px-4' %></td>
       </tr>
     <% end %>
     </tbody>

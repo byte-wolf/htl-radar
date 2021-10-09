@@ -1,46 +1,52 @@
-<nav id="sidebar">
-  <div class="sidebar-header">
-    <h3>Bootstrap Sidebar</h3>
-  </div>
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-light bg-dark">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-decoration-none text-white">
+    <%= render 'layouts/logo32' %>
+    <span class="fs-4 mx-2">
+      HTL-Radar
+    </span>
+  </a>
 
-  <ul class="list-unstyled components">
-    <p>Dummy Heading</p>
-    <li class="active">
-      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-      <ul class="collapse list-unstyled" id="homeSubmenu">
-        <li>
-          <a href="#">Home 1</a>
-        </li>
-        <li>
-          <a href="#">Home 2</a>
-        </li>
-        <li>
-          <a href="#">Home 3</a>
-        </li>
-      </ul>
+  <hr>
+
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="<%= overview_path %>" class="nav-link text-white <%= 'active' if current_page?(overview_path) %>" aria-current="page">
+        <%= octicon "home", :height => 16, :fill => "white" %>
+        Overview
+      </a>
     </li>
     <li>
-      <a href="#">About</a>
-    </li>
-    <li>
-      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-      <ul class="collapse list-unstyled" id="pageSubmenu">
-        <li>
-          <a href="#">Page 1</a>
-        </li>
-        <li>
-          <a href="#">Page 2</a>
-        </li>
-        <li>
-          <a href="#">Page 3</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">Portfolio</a>
-    </li>
-    <li>
-      <a href="#">Contact</a>
+      <a href="<%= occurrences_path %>" class="nav-link text-white <%= 'active' if current_page?(occurrences_path) %>">
+        <%= octicon "calendar", :height => 16, :fill => "white" %>
+        Events
+      </a>
     </li>
   </ul>
-</nav>
+
+  <hr>
+
+  <% if @display_user %>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
+        <img src="https://www.senertec.de/wp-content/uploads/2020/04/blank-profile-picture-973460_1280.png" alt="" class="rounded-circle me-2" width="32" height="32">
+        <strong>
+          <%= @display_user.user_name if @display_user %>
+          <%= 'Not Logged In' if !@display_user %>
+        </strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+      </ul>
+    </div>
+  <% else %>
+    <div class="nix">
+      <%= link_to 'Log In', '/login', :class => 'btn btn-light btn-sm' %>
+      <%= link_to 'Register', '/register', :class => 'btn btn-outline-light btn-sm' %>
+    </div>
+
+  <% end %>
+</div>

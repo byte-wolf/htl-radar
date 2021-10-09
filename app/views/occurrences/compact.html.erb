@@ -1,0 +1,25 @@
+<table class="table">
+  <h3>
+    <%= @occurrences.first.start_time.to_date.strftime('%d.%m.%Y') if @occurrences.first %>
+    <%= 'No Events on this day' unless @occurrences.first %>
+  </h3>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Time</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @occurrences.each do |occurrence| %>
+    <tr>
+      <td><%= occurrence.name %></td>
+      <td> <%= occurrence.start_time.strftime("%T") %></td>
+      <td><%= link_to I18n.translate('actions.show'), occurrence, :class => 'btn btn-sm btn-secondary text-light px-2' %>
+      <%= link_to I18n.translate('actions.edit'), edit_occurrence_path(occurrence), :class => 'btn btn-sm btn-warning px-2' %>
+      <%= link_to I18n.translate('actions.destroy') , occurrence, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger text-light px-2' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

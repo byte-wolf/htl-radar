@@ -3,12 +3,12 @@
 
   <div>
     <strong>Name:</strong>
-    <div class="form-control" disabled readonly><%= @occurrence.name %></div>
+    <div class="form-control w-50" disabled readonly><%= @occurrence.name %></div>
   </div>
 
   <div>
     <strong>Start time:</strong>
-    <div class="form-control" disabled readonly><%= @occurrence.start_time %></div>
+    <div class="form-control w-50" disabled readonly><%= @occurrence.start_time %></div>
   </div>
 
   <%= link_to octicon("arrow-left", :height => 16, :fill => "white") + ' Back', occurrences_path, :class => "btn btn-secondary text-light mt-5 px-4" %>

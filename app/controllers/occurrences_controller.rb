@@ -10,6 +10,16 @@ class OccurrencesController < ApplicationController
     end
   end
 
+  def compact
+    if params['day']
+      @occurrences = Occurrence.where(:start_time => params['day'].to_date.beginning_of_day..params['day'].to_date.end_of_day)
+
+      respond_to do |format|
+        format.html { render "occurrences/compact", :layout => false }
+      end
+    end
+  end
+
   # GET /occurrences/1 or /occurrences/1.json
   def show
     if @current_user

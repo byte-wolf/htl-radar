@@ -60,7 +60,7 @@ $irelevant: #ccc;
       height: 60px;
       padding-bottom: 20px;
       color: white;
-      background-color: #6c757d;
+      background-color: #212529; /*#6c757d;  */
       border-bottom: 1px solid #eee;
     }
 
@@ -81,8 +81,18 @@ $irelevant: #ccc;
     .day {
       font-weight: 1000;
       font-size: 110%;
+      position: relative;
+      .day-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: none;
+        border: none;
 
-      div {
+      }
+      .day-number {
         font-size: 60%;
       }
     }
@@ -110,8 +120,17 @@ $irelevant: #ccc;
   display: flex;
   width: 100%;
   align-items: stretch;
+  height: auto;
+
+  .sidebar {
+    flex: 1 1 auto;
+  }
 }
 
 .col-white {
   color: white;
+}
+
+.sidebar {
+  width: 280px;
 }

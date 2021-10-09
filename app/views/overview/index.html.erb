@@ -1,21 +1,34 @@
+<script>
 
+  $( document ).ready((event) => {
+      setupEvents();
+  });
+</script>
+
+<!-- Content -->
 <div class="wrapper">
-  <!-- Sidebar -->
-  <!-- render 'overview/sidebar' -->
 
   <div class="container mt-5">
 
     <div class="rounded-3 text-center">
       <%= month_calendar(events: @occurrences) do |date, occurrences| %>
-        <%= date %>
+        <!-- Button trigger modal -->
+        <button id="<%= date %>" type="button" class="day-fill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        </button>
+
+        <%= date.strftime("%d") %>
 
         <% occurrences.each do |occurrence| %>
-          <div>
+          <div class="day-number">
             <%= occurrence.name %>
           </div>
         <% end %>
+
+
       <% end %>
     </div>
   </div>
 </div>
 
+<!-- Modal -->
+<%= render 'overview/events_modal' %>
