@@ -17,8 +17,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-window.jQuery = $;
-window.$ = $;
+
 window.setupEvents = setupButtonEvents;
 
 
