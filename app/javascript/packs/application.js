@@ -11,13 +11,11 @@ import 'bootstrap/dist/js/bootstrap'
 import "bootstrap/dist/css/bootstrap";
 import {setupButtonEvents} from "../src/overview";
 
-require("jquery")
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
+global.$ = require('jquery')
 window.setupEvents = setupButtonEvents;
 
 
