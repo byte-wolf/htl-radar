@@ -10,13 +10,13 @@
 
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="<%= overview_path %>" class="nav-link text-white <%= 'active' if current_page?(overview_path) %>" aria-current="page">
+      <a href="<%= overview_path %>" class="nav-link text-white <%= 'active' if @page == 'overview' %>" aria-current="page">
         <%= octicon "home", :height => 16, :fill => "white" %>
         Overview
       </a>
     </li>
     <li>
-      <a href="<%= occurrences_path %>" class="nav-link text-white <%= 'active' if current_page?(occurrences_path) %>">
+      <a href="<%= occurrences_path %>" class="nav-link text-white <%= 'active' if @page == 'occurrences' %>">
         <%= octicon "calendar", :height => 16, :fill => "white" %>
         Events
       </a>
@@ -25,13 +25,13 @@
 
   <hr>
 
-  <% if @display_user %>
+  <% if @active_user %>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
         <img src="https://www.senertec.de/wp-content/uploads/2020/04/blank-profile-picture-973460_1280.png" alt="" class="rounded-circle me-2" width="32" height="32">
         <strong>
-          <%= @display_user.user_name if @display_user %>
-          <%= 'Not Logged In' if !@display_user %>
+          <%= @active_user.user_name if @active_user %>
+          <%= 'Not Logged In' unless @active_user %>
         </strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">

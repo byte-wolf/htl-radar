@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user
         session[:user_id] = @user.id
-        format.html { redirect_to '/', notice: "User is already logged in." }
+        format.html { redirect_to '/' }
         format.json { render :show, status: :created }
       else
         flash[:danger] = 'Invalid email/password combination'

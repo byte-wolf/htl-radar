@@ -16,7 +16,11 @@
       <%= render 'overview/sidebar' %>
 
       <!-- Content -->
-      <%= yield %>
+      <div class="py-5 scrollable w-100">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

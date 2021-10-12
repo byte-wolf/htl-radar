@@ -6,28 +6,22 @@
 </script>
 
 <!-- Content -->
-<div class="wrapper">
+<div class="rounded-3 text-center">
+  <%= month_calendar(events: @occurrences) do |date, occurrences| %>
+    <!-- Button trigger modal -->
+    <button id="<%= date %>" type="button" class="day-fill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    </button>
 
-  <div class="container mt-5">
+    <%= date.strftime("%d") %>
 
-    <div class="rounded-3 text-center">
-      <%= month_calendar(events: @occurrences) do |date, occurrences| %>
-        <!-- Button trigger modal -->
-        <button id="<%= date %>" type="button" class="day-fill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        </button>
-
-        <%= date.strftime("%d") %>
-
-        <% occurrences.each do |occurrence| %>
-          <div class="day-number">
-            <%= occurrence.name %>
-          </div>
-        <% end %>
+    <% occurrences.each do |occurrence| %>
+      <div class="day-number">
+        <%= occurrence.name %>
+      </div>
+    <% end %>
 
 
-      <% end %>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 <!-- Modal -->

@@ -1,5 +1,6 @@
 class OccurrencesController < ApplicationController
   before_action :set_occurrence, only: %i[ show edit update destroy ]
+  before_action :set_ui
 
   # GET /occurrences or /occurrences.json
   def index
@@ -22,23 +23,30 @@ class OccurrencesController < ApplicationController
 
   # GET /occurrences/1 or /occurrences/1.json
   def show
-    if @current_user
-      @occurrence = Occurrence.find(params[:id])
-    else
-      @occurrence = Occurrence.new
-    end
+
+    @occurrence = Occurrence.find(params[:id])
+
   end
 
   # GET /occurrences/new
   def new
-    @occurrence = Occurrence.new
+    if @current_user
+      @occurrence = Occurrence.new
+    else
+      respond_to do |format|
+        flash[:warning] = 'You need to be logged in to edit Events'
+        format.html { redirect_to '/login' }
+        format.json { render json: {status: 'forbidden'}, status: :forbidden }
+      end
+    end
   end
 
   # GET /occurrences/1/edit
   def edit
-    if !@current_user
+    unless @current_user
+      flash[:warning] = 'You need to be logged in to edit Events'
       respond_to do |format|
-        format.html { render 'errors/forbidden', status: :forbidden }
+        format.html { redirect_to '/login' }
         format.json { render json: {status: 'forbidden'}, status: :forbidden }
       end
     end
@@ -60,7 +68,7 @@ class OccurrencesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'errors/forbidden', status: :forbidden }
+        format.html { redirect_to '/login' }
         format.json { render json: {status: 'forbidden'}, status: :forbidden }
       end
     end
@@ -80,7 +88,7 @@ class OccurrencesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'errors/forbidden', status: :forbidden }
+        format.html { redirect_to '/login' }
         format.json { render json: {status: 'forbidden'}, status: :forbidden }
       end
     end
@@ -95,8 +103,9 @@ class OccurrencesController < ApplicationController
         format.json { head :no_content }
       end
     else
+      flash[:warning] = 'You need to be logged in to edit Events'
       respond_to do |format|
-        format.html { render 'errors/forbidden', status: :forbidden }
+        format.html { redirect_to '/login' }
         format.json { render json: {status: 'forbidden'}, status: :forbidden }
       end
     end
@@ -111,5 +120,10 @@ class OccurrencesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def occurrence_params
       params.require(:occurrence).permit(:name, :start_time)
+    end
+
+    def set_ui
+      @active_user = @current_user
+      @page = 'occurrences'
     end
 end
