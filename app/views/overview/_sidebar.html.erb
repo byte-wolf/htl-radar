@@ -1,6 +1,16 @@
-<div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-light bg-dark">
+<script>
+
+    $( document ).ready((event) => {
+        setupSidebarEvents();
+    });
+</script>
+
+<div id="sidebar" class="sidebar sidebar-mobile d-flex flex-column flex-shrink-0 text-light bg-dark">
+  <div class="expand-button w-100 h-100">
+    <%= octicon "chevron-right", :height => 16, :fill => "white" %>
+  </div>
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-decoration-none text-white">
-    <%= render 'layouts/logo32' %>
+    <%= render 'layouts/logo_large' %>
     <span class="fs-4 mx-2">
       HTL-Radar
     </span>

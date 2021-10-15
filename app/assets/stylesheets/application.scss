@@ -17,6 +17,58 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 //@import "bootstrap";
 
+.sidebar {
+  padding: 1rem;
+  width: 280px;
+  .expand-button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    z-index: 99;
+    transition: width 500ms;
+
+    .expand-button {
+      display: block;
+      position: relative;
+
+      .octicon {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        * {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .sidebar-mobile {
+    width: 1em;
+    padding: 0;
+
+    * {
+      display: none;
+    }
+  }
+
+  .dimmer {
+    background-color: #00000044;
+    z-index: 50;
+    display: none;
+  }
+
+  #content {
+    margin-left: 1em;
+  }
+}
+
 .main {
   display: flex;
   flex-wrap: nowrap;

@@ -10,6 +10,7 @@ import "channels"
 import 'bootstrap/dist/js/bootstrap'
 import "bootstrap/dist/css/bootstrap";
 import {setupButtonEvents} from "../src/overview";
+import {setupSidebarEvents} from "../src/sidebar";
 
 Rails.start()
 Turbolinks.start()
@@ -17,5 +18,6 @@ ActiveStorage.start()
 
 global.$ = require('jquery')
 window.setupEvents = setupButtonEvents;
+window.setupSidebarEvents = setupSidebarEvents;
 
 

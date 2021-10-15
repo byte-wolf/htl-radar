@@ -12,11 +12,16 @@
 
   <body>
     <div class="main">
+      <!-- DIMMER -->
+      <div class="dimmer w-100 h-100 position-fixed">
+
+      </div>
+
       <!-- Sidebar -->
       <%= render 'overview/sidebar' %>
 
       <!-- Content -->
-      <div class="py-5 scrollable w-100">
+      <div id="content" class="py-5 scrollable w-100">
         <div class="container">
           <%= yield %>
         </div>
